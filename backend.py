@@ -14,11 +14,13 @@ try:
 except Exception as e:
     print("An Error Occurred:\\n\\t" + str(e))
     """
-    #print(UserCode.split("\n"))
+    # print(UserCode.split("\n"))
     UserCode = "\n".join(["\t" + line for line in UserCode.split("\n")])
     return PythonCodeBase.replace("***CODE GOES HERE***", UserCode)
 
+
 app = Flask(__name__)
+
 
 @app.route("/run", methods=["POST"])
 def run():
@@ -35,9 +37,11 @@ def run():
     remove(currentDir + "output.log")
     return output
 
+
 @app.route("/load", methods=["POST"])
 def load():
     ans = request.form["Script"]
     return ans
+
 
 app.run(port=80)
