@@ -1,13 +1,13 @@
-$(function(){ 
+$(function(){
    let name = null;
    let content = null;
-   
+
    // Get current tab's URL
    let URL = null;
    chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
      URL = tabs[0].url;
    });
-   
+
    let editor = CodeMirror.fromTextArea(document.getElementById("CodeForm"),{
       mode: "python",
       lineNumbers: true,
@@ -18,7 +18,7 @@ $(function(){
   editor.on("cursorActivity", function () {
             //get the current value in textarea
             words = editor.getValue() + '';
-            
+
         });
   // Use JQuery to post the form to local Flask
   $('#submit').click(function(){
@@ -27,7 +27,7 @@ $(function(){
         while (compiled_words.indexOf("PYROME_URL") !== -1 || compiled_words.indexOf("PYROME_DOMAIN") !== -1){
           compiled_words = compiled_words.replace("PYROME_URL", '"""' + URL + '"""').replace("PYROME_DOMAIN", '"""' + Domain + '"""');
         }
-        $.ajax({   
+        $.ajax({
         type:   "POST",
         url:    "http://localhost/run",
         data:   { "Python" :compiled_words },
@@ -38,25 +38,25 @@ $(function(){
           alert(status);
         }
       });
-  });  
+  });
 
   // Clear the output textare when the clear button is clicked
   $("#outputclear").click(function(){
     $("#output").val("");
   });
-    
+
   // Clear the CodeForm textare when the clear button is clicked
   $("#inputclear").click(function(){
     editor.setValue('');
   });
-  
+
   /*
   //Load button
   $("#load").click(function(){
        name = $("#ScriptName").val();
       chrome.storage.local.get(name, function(pair){
-        content = pair[name];  
-      $.ajax({   
+        content = pair[name];
+      $.ajax({
         type: "POST",
         url:  "http://localhost/load",
         data: { "Script" : content },
@@ -65,14 +65,14 @@ $(function(){
         },
         fail: function(status){
           alert(status);
-        }  
-      }); 
-          
+        }
+      });
+
       });
   });
 */
 
-    
+
   $("#delete").click(function(){
      name = $("#ScriptName").val();
      chrome.storage.local.remove([name], function(){
@@ -80,7 +80,7 @@ $(function(){
         window.location.href="editor.html";
      });
   });
-    
+
   // Save button
   $("#save").click(function(){
     var Name = $("#ScriptName").val();
@@ -100,18 +100,18 @@ $(function(){
   $("#back").click(function(){
     window.location.href = "nav.html";
   });
-  
+
   chrome.storage.local.get(null, function(items){
     var allKeys = Object.keys(items);
     for (var i=0; i<allKeys.length; i++){
       $("#list").append('<li class="list-group-item" id="item">' + allKeys[i] + '</li>');
-    }    
+    }
     // Implemented click-to-load functionality
     $('ul').on('click', 'li', function() {
       name = $(this).text();
       chrome.storage.local.get(name, function(pair){
-        content = pair[name];  
-        $.ajax({   
+        content = pair[name];
+        $.ajax({
           type: "POST",
           url:  "http://localhost/load",
           data: { "Script" : content },
@@ -121,12 +121,12 @@ $(function(){
           },
           fail: function(status){
             alert(status);
-          }  
-        }); 
+          }
+        });
       });
     });
-  });        
-        
+  });
+
   /*    Editor Related Scripts      */
   $("#CodeForm").keydown(function(e){
     key = e.keyCode;
