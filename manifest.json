@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+
+  "name": "Pyrome Extension",
+  "description": "Author: Yuhao Jian (Danny). A Python extension that utilizes Python to an extreme. You can write, exchange, save and load Python scripts.",
+  "version": "0.1",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "nav.html",
+    "default_title": "Click to Open Pyrome"
+  },
+  "externally_connectable": {
+    "matches": [
+      "*://localhost/*",
+      "*://127.0.0.1/*"
+    ]
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "unlimitedStorage",
+    "bookmarks",
+    "browsingData",
+    "cookies",
+    "http://localhost/*",
+    "https://ajax.googleapis.com/"
+  ]
+}
