@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "Pyrome Extension",
-  "description": "Author: Yuhao Jian (Danny). A Python extension that utilizes Python to an extreme. You can write, exchange, save and load Python scripts.",
+  "description": "Developed By: Yuhao Jian (Danny), Xinming Huang(Jack), Shen Teng(Stanley). A Python extension that utilizes Python to an extreme. You can write, exchange, save and load Python scripts.",
   "version": "0.1",
   "browser_action": {
     "default_icon": "icon.png",
