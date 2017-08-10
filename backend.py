@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template
 from os import getcwd, system, remove
+import subprocess
 #from html import escape
 
 
@@ -28,14 +29,11 @@ def run():
     with open("test.py", "w+") as fTemp:
         fTemp.write(GeneratePythonCode(code))
     currentDir = getcwd() + "/"
-    print(currentDir)
-    system("python " + currentDir + "test.py > " + currentDir + "output.log")
-    with open("output.log", "r") as fOut:
-        output = fOut.read()
+    CodeOutput = subprocess.check_output("python " + currentDir +
+                                         "test.py")
     # Clean up the script file and output log
     remove(currentDir + "test.py")
-    remove(currentDir + "output.log")
-    return output
+    return CodeOutput.decode("utf-8")
 
 
 @app.route("/load", methods=["POST"])
