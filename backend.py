@@ -13,7 +13,7 @@ from pprint import pprint as print
 try:
 ***CODE GOES HERE***
 except Exception as e:
-    print("An Error Occurred:\\n\\t" + str(e))
+    nprint("An error occurred:\\n\\t" + str(e))
     """
     # print(UserCode.split("\n"))
     UserCode = "\n".join(["\t" + line for line in UserCode.split("\n")])
