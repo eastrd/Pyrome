@@ -8,8 +8,9 @@ from textwrap3 import wrap
 import re
 driver = webdriver.PhantomJS()
 driver.get(
-    f"https://monash.edu/pubs/2017handbooks/units/{unit.upper()}.html"
-  )
+    "https://monash.edu/pubs/2017handbooks/units/"
+    + unit.upper() + ".html"
+)
 soup = bs(driver.page_source, "html.parser")
 unitFullname = soup.find("h1", class_="banner_it").text
 dirtyinfo = soup.find("div", id="content_container_").text
