@@ -29,7 +29,7 @@ $(function(){
         }
         $.ajax({
         type:   "POST",
-        url:    "http://localhost/run",
+        url:    "http://localhost:12345/run",
         data:   { "Python" :compiled_words },
         success: function(response, xml){
           $("#output").val(response);
@@ -113,7 +113,7 @@ $(function(){
         content = pair[name];
         $.ajax({
           type: "POST",
-          url:  "http://localhost/load",
+          url:  "http://localhost:12345/load",
           data: { "Script" : content },
           success: function(response, xml){
             editor.setValue(response);
