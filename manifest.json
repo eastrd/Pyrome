@@ -4,8 +4,14 @@
   "name": "Pyrome Extension",
   "description": "Developed By: Yuhao Jian (Danny), Xinming Huang(Jack), Shen Teng(Stanley). A Python extension that utilizes Python to an extreme. You can write, exchange, save and load Python scripts.",
   "version": "0.1",
+  "icons": {
+  	"16": "icon/icon.png",
+  	"32": "icon/icon.png",
+  	"48": "icon/icon.png",
+  	"128": "icon/icon.png"
+  },
   "browser_action": {
-    "default_icon": "icon.png",
+    "default_icon": "icon/small_icon.png",
     "default_popup": "nav.html",
     "default_title": "Click to Open Pyrome"
   },
