@@ -42,16 +42,36 @@
       <input type="text" placeholder="ScriptName.py" id="ScriptName" class="form-control mb-2 mr-sm-2 mb-sm-0">
       <textarea class="form-control" style="width: 800px; height:200px;" id="CodeForm" form="form" placeholder="# Write your Python Code Here"></textarea>
       <br>
-      <input type="button" class="ui icon button"  value="Run" id="submit">
-      <input type="button" class="ui icon button" value="Save" id="save">
-      <!--<input type="button" class="btn btn-info" value="Load" id="load"> -->
-      <input type="button" class="ui icon button" value="Delete" id="delete">
-      <input type="button" class="ui icon button" value="Clear" id="inputclear">
+      <button type="button" class="ui icon button"  value="Run" id="submit">
+      <i class="play icon" value="Run" id="submit"></i>
+        Run
+      </button>
+
+      <button type="button" class="ui icon button" value="Save" id="save">
+        <i class="save icon" value="Save" id="save"></i>
+        Save
+      </button>
+
+      <button type="button" class="ui icon button" value="Delete" id="delete">
+        <i class="trash outline icon" value="Delete" id="delete"></i>
+        Delete
+      </button>
+
+      <button type="button" class="ui icon button" value="Clear" id="inputclear">
+      <i class="erase icon" value="Clear" id="inputclear"></i>
+        Clear
+      </button>
     </form>
     <br>
     <textarea readonly style="width: 800px; height:200px;" class="form-control" id="output" placeholder="# Output"></textarea><br>
-    <input type="button" class="ui icon button" value="Back" id="back">
-    <input type="button" class="ui icon button" value="Clear" id="outputclear">
+    <button type="button" class="ui icon button" value="Back" id="back">
+    <i class="home icon" value="Back" id="back"></i>
+      Back
+    </button>
+    <button type="button" class="ui icon button" value="Clear" id="outputclear">
+      <i class="erase icon" value="Clear" id="outputclear"></i>
+        Clear
+      </button>
       </div>   
   </body>
 </html>
