@@ -29,11 +29,16 @@ def run():
     with open("test.py", "w+") as fTemp:
         fTemp.write(GeneratePythonCode(code))
     currentDir = getcwd() + "/"
-    CodeOutput = subprocess.check_output("python " + currentDir +
-                                         "test.py")
+    try:
+        CodeOutput = subprocess.check_output("python " + currentDir +
+                                         "test.py").decode("utf-8")
+    except subprocess.CalledProcessError as e:
+        # In the case where the given code results in error,
+        #  this catches that error and outputs it back to user.
+        CodeOutput = str(e.output)
     # Clean up the script file and output log
     remove(currentDir + "test.py")
-    return CodeOutput.decode("utf-8")
+    return CodeOutput
 
 
 @app.route("/load", methods=["POST"])
